@@ -7,6 +7,9 @@ from contextlib import contextmanager
 from scrapyd import get_application
 from scrapyd.interfaces import IEggStorage
 from scrapyd.eggutils import activate_egg
+from scrapy.utils.reactor import install_reactor
+
+install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
 
 @contextmanager
 def project_environment(project):
